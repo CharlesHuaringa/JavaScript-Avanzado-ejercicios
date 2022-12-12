@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <p>Distancia: <input type="number" ng-model="distancia"></p>
+        <p>{{distancia}}</p>
+        <p>tarifa: {{calculartarifa()}}</p>
+        <p>descuento: {{calculardescuento()}}</p>
+        <p>Total: {{total()}}</p>
+        <script>
+            let app = angular.module("myApp", [])
+
+            app.controller("myCtrl", function($scope){
+                $scope.distancia = 0
+                $scope.calculartarifa = function(){
+                    if($scope.distancia <= 300){
+                        return 250
+                    }else if($scope.distancia <= 1000){
+                        return 250 + 30 * ($scope.distancia - 300)   
+                    }else{
+                        return 250 + 30 * (1000-300) + 20 * ($scope.distancia - 1000)
+                    }
+                }
+                $scope.calculardescuento = function(){
+              if($scope.calculartarifa() >= 500){
+                return $scope.calculartarifa()*0.10
+              }
+            }
+              $scope.total = function(){
+                if($scope.calculartarifa() >= 500){
+                        return $scope.calculartarifa() - $scope.calculardescuento()
+                    }
+                }
+            })
+        </script>
+    </div>
+    
+</body>
+</html>
