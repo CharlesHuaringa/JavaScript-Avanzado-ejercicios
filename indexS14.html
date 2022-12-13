@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="control">
+      <p>Código del empleado: <input type="text" ng-model="codigo"></p>
+      <p>Tarifa por horas: <input type="text" ng-model="tarifa"></p>
+      <p>Horas: <input type="text" ng-model="horas"></p>
+      <p>Sueldo básico: {{sueldobasico()}}</p>
+      <p>Descuento: {{descuento()}}</p>
+      <p>Salario neto: {{salarioneto()}}</p>
+        
+       </div>
+       <script src="scriptS14.js"></script>
+</body>
+</html>
